@@ -16,7 +16,7 @@ export class TabsPage {
 
   logout() {
     this.supabase.auth.signOut().then(() => {
-      this.router.navigate(['/splash']);
+      this.router.navigate(['/login']);
     });
   }
 }
