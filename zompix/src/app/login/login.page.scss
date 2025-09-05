@@ -1,0 +1,83 @@
+/* login.scss /
+
+/ Fondo en degradado gris /
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+}
+
+/ Contenedor del formulario /
+form {
+    width: 90%;
+    max-width: 380px;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #e0e0e0;
+        font-size: 1.8rem;
+        font-weight: bold;
+    }
+}
+
+/ Label /
+label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/ Input /
+input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f5f5f5;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    outline: none;
+    margin-bottom: 1rem;
+}
+
+input:focus {
+    border-bottom: 2px solid #b0b0b0;
+}
+
+/ Mensajes de error /
+div {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: -0.5rem;
+    margin-bottom: 0.8rem;
+}
+
+/ Botón */
+button {
+    margin-top: 1rem;
+    width: 100%;
+    background: linear-gradient(135deg, #666, #444);
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    height: 48px;
+    text-transform: none;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+button:active {
+    background: linear-gradient(135deg, #555, #333);
+}

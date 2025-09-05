@@ -1,0 +1,36 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+  <label position="floating">Email</label>
+  <input formControlName="email" type="text">
+
+  @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+  <div>Campo obligatorio</div>
+  }
+
+  <label position="floating">Contraseña</label>
+  <input formControlName="password" type="password">
+
+  @if (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
+  <div>Mínimo 8 caracteres</div>
+  }
+
+
+  <button type="submit" class="btn-green">
+    Iniciar sesión
+  </button>
+
+  <button type="button" class="btn-green" (click)="loginForm.setValue({email: 'test1@gmail.com', password: '12345678'}); onSubmit()">Inicio rápido 1</button>
+  <button type="button" class="btn-green" (click)="loginForm.setValue({email: 'test2@gmail.com', password: '12345678'}); onSubmit()">Inicio rápido 2</button>
+  <button type="button" class="btn-green" (click)="loginForm.setValue({email: 'test3@gmail.com', password: '12345678'}); onSubmit()">Inicio rápido 3</button>
+
+  <button type="button" class="btn-green" (click)="onRegisterFromLogin()">Registrar usuario</button>
+
+
+  <div *ngIf="registerSuccess" class="success">Usuario registrado correctamente. ¡Ahora puedes iniciar sesión!</div>
+  <div *ngIf="registerError" class="error">{{ registerError }}</div>
+  <div *ngIf="loginSuccess" class="success">¡Inicio de sesión exitoso!</div>
+  <div *ngIf="loginError" class="error">{{ loginError }}</div>
+
+
+
+</form>

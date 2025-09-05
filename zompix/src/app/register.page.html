@@ -1,0 +1,26 @@
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+  <label>Email</label>
+  <input formControlName="email" type="email" />
+  <div *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+    <span *ngIf="registerForm.get('email')?.errors?.['required']">El correo es obligatorio.</span>
+    <span *ngIf="registerForm.get('email')?.errors?.['email']">Correo inválido.</span>
+  </div>
+
+  <label>Contraseña</label>
+  <input formControlName="password" type="password" />
+  <div *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+    <span *ngIf="registerForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</span>
+    <span *ngIf="registerForm.get('password')?.errors?.['minlength']">Mínimo 8 caracteres.</span>
+    <span *ngIf="registerForm.get('password')?.errors?.['maxlength']">Máximo 15 caracteres.</span>
+  </div>
+
+  <button type="submit" class="btn-green">Registrarse</button>
+
+  <div *ngIf="registerError" class="error">{{ registerError }}</div>
+  <div *ngIf="registerSuccess" class="success">Usuario registrado correctamente. ¡Ahora puedes iniciar sesión!</div>
+</form>
+
+<!-- Botones de acceso rápido para pruebas -->
+<button class="btn-green" (click)="onRegisterQuick('test1@gmail.com', '12345678')">Registro rápido 1</button>
+<button class="btn-green" (click)="onRegisterQuick('test2@gmail.com', '12345678')">Registro rápido 2</button>
+<button class="btn-green" (click)="onRegisterQuick('test3@gmail.com', '12345678')">Registro rápido 3</button>
